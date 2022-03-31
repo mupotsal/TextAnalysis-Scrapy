@@ -6,6 +6,7 @@ class PoliticoSpider(scrapy.Spider):
     start_urls = ['https://www.politico.com/search?q=technology/']
 
     def parse(self, response):
+        print("This is the response Yooooo",response)
         for articles in response.css('article.story-frag.format-ml'):
             yield {
                 "Title" : articles.css('img').attrib['alt'],
